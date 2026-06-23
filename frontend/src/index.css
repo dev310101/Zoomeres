@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    background-color: #f8fafc;
+    color: #0F172A;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #f1f5f9; }
+  ::-webkit-scrollbar-thumb { background: #c4b5fd; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #7C3AED; }
+}
+
+@layer components {
+  /* Primary CTA — gradient pill */
+  .btn-primary {
+    @apply bg-gradient-to-r from-brand-purple to-brand-pink text-white font-bold 
+           px-5 py-2.5 rounded-full hover:opacity-90 active:scale-95 
+           transition-all duration-150 shadow-sm hover:shadow-purple-200 hover:shadow-md;
+  }
+  /* Secondary — purple solid pill */
+  .btn-secondary {
+    @apply bg-brand-purple text-white font-bold px-5 py-2.5 rounded-full
+           hover:bg-brand-purple-dark active:scale-95 transition-all duration-150
+           shadow-sm hover:shadow-md;
+  }
+  /* Orange CTA pill */
+  .btn-orange {
+    @apply bg-gradient-to-r from-brand-orange to-brand-pink text-white font-bold
+           px-5 py-2.5 rounded-full hover:opacity-90 active:scale-95
+           transition-all duration-150 shadow-sm hover:shadow-md;
+  }
+  /* Glassmorphism card */
+  .card {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm border border-white/60
+           hover:shadow-md transition-shadow duration-200;
+  }
+  /* Solid card variant */
+  .card-solid {
+    @apply bg-white rounded-2xl shadow-sm border border-slate-100
+           hover:shadow-md transition-shadow duration-200;
+  }
+  .shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e8e0f8 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  .badge-sponsored {
+    @apply absolute top-2 left-2 bg-gradient-to-r from-brand-orange to-brand-pink 
+           text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide;
+  }
+  .badge-vip {
+    @apply bg-gradient-to-r from-amber-400 to-amber-500 text-amber-900 
+           text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide;
+  }
+  .badge-new {
+    @apply bg-gradient-to-r from-brand-cyan to-brand-purple text-white
+           text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide;
+  }
+  .input-field {
+    @apply w-full border border-slate-200 rounded-full px-4 py-2.5 text-sm
+           focus:outline-none focus:ring-2 focus:ring-brand-purple/30 focus:border-brand-purple
+           bg-white transition-all;
+  }
+  /* Input with square radius for forms */
+  .input-field-rect {
+    @apply w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm
+           focus:outline-none focus:ring-2 focus:ring-brand-purple/30 focus:border-brand-purple
+           bg-white transition-all;
+  }
+  .star-filled { @apply text-amber-400; }
+  .star-empty  { @apply text-slate-200; }
+
+  /* Gradient text utility */
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-purple to-brand-pink bg-clip-text text-transparent;
+  }
+  /* Glow effect for hero elements */
+  .glow-purple {
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.25);
+  }
+}
+
+/* Confetti */
+#confetti-canvas {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none; z-index: 9999;
+}
+
+/* Cart add */
+@keyframes addToCart {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.15); }
+  70%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+.add-to-cart-anim { animation: addToCart 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97); }
+
+/* Coin pop */
+@keyframes coinPop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.4) rotate(15deg); }
+  100% { transform: scale(1); }
+}
+.coin-pop { animation: coinPop 0.4s ease-out; }
+
+/* Skeleton */
+@keyframes skeletonPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+.skeleton { animation: skeletonPulse 1.5s ease-in-out infinite; }
+
+/* Progress bar */
+.progress-bar-fill { transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* Mobile */
+* { -webkit-tap-highlight-color: transparent; }
